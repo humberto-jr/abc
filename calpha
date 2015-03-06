@@ -1,0 +1,1 @@
+f90 -assume byterecl -fpe1 -fast abc.f fun.f lin.f pot.f -o abc.x -ldxml  

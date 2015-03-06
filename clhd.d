@@ -1,0 +1,16 @@
+ &input
+  mass=35,1,2
+  jtot=5
+  ipar=-1
+  jpar=0
+  jmax=17
+  kmax=3
+  rmax=12.0
+  mtr=100
+  emax=1.7
+  enrg=0.35
+  dnrg=0.01
+  nnrg=26
+  nout=0
+  jout=1
+ &end
