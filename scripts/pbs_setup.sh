@@ -1,4 +1,12 @@
 #!/bin/bash
+#
+# This script prepares PBS batch job scripts for those calculations performed in
+# the workflow created by abc_workflow.sh. Scripts are written in each directory
+# J=*/parity=*1/s_matrix/.
+#
+# Humberto Jr
+# Jun, 2020
+
 set -u
 set -e
 
@@ -77,7 +85,7 @@ do
 
 		if [ "$queue_name" != "" ]
 		then
-			echo "#PBS -q $queue_name"                              >> $filename
+			echo "#PBS -q $queue_name"                                   >> $filename
 		fi
 
 		echo '#PBS -N "'$job_name'"'                                    >> $filename
@@ -90,13 +98,13 @@ do
 
 		if [ "$env_ld_path" != "" ]
 		then
-			echo $env_ld_path                                       >> $filename
+			echo $env_ld_path                                            >> $filename
 		fi
 
 		if [ "$modules" != "" ]
 		then
-			echo ""                                                 >> $filename
-			echo "module load $modules"                             >> $filename
+			echo ""                                                      >> $filename
+			echo "module load $modules"                                  >> $filename
 		fi
 
 		echo ""                                                         >> $filename

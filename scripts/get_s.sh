@@ -11,6 +11,9 @@
 # Humberto Jr
 # Jun, 2020
 
+set -u
+set -e
+
 # Total angular momentum
 J_min=0
 J_max=1
