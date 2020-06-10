@@ -17,9 +17,9 @@
       allocate (ipiv(n),work(32*n))
 !
       lwork = 32*n
-      call dsytrf ('U',n,a,lda,ipiv,work,lwork,ierr)
+      call dsytrf ('u',n,a,lda,ipiv,work,lwork,ierr)
       if (ierr .ne. 0) return
-      call dsytri ('U',n,a,lda,ipiv,work,ierr)
+      call dsytri ('u',n,a,lda,ipiv,work,ierr)
       do j = 2,n
          do i = 1,j-1
             a(j,i) = a(i,j)

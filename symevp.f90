@@ -17,6 +17,6 @@
       allocate (work(34*n))
 !
       lwork = 34*n
-      call dsyev ('V','L',n,a,lda,d,work,lwork,ierr)
+      call dsyev ('v','l',n,a,lda,d,work,lwork,ierr)
       return
       end

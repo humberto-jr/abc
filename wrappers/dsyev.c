@@ -1,6 +1,6 @@
 #include "wrappers.h"
 
-void dsyev_(const char jobz,
+void DSYEV_(const char jobz,
             const char uplo,
             const int n,
             double a[],

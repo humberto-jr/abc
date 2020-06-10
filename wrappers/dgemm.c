@@ -1,6 +1,6 @@
 #include "wrappers.h"
 
-void dgemm_(const char trans_a,
+void DGEMM_(const char trans_a,
             const char trans_b,
             const int m,
             const int n,
@@ -16,11 +16,8 @@ void dgemm_(const char trans_a,
 {
 	init_gpu();
 
-	const magma_trans_t a_form
-		= (trans_a == 'n'? MagmaNoTrans : MagmaTrans);
-
-	const magma_trans_t b_form
-		= (trans_b == 'n'? MagmaNoTrans : MagmaTrans);
+	const magma_trans_t a_form = (trans_a == 'n'? MagmaNoTrans : MagmaTrans);
+	const magma_trans_t b_form = (trans_b == 'n'? MagmaNoTrans : MagmaTrans);
 
 	double *a_gpu = NULL, *b_gpu = NULL, *c_gpu = NULL;
 
