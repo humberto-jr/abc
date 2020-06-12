@@ -149,7 +149,7 @@
       endif
       return
   61  format(/1x,'MATCH:'/1x,70('-')/1x, &
-       ' E(eV) = ',f8.5,27x,'Seps = ',1p,e8.1,0p/1x,70('-')/1x, &
+       ' E(eV) = ',es20.12,24x,'Seps = ',1p,e8.1,0p/1x,70('-')/1x, &
        '  a    v    j    k    a''   v''   j''   k''     Re(S)', &
        '     Im(S)     |S|^2 '/1x,70('-'))
   62  format(1x,i3,7i5,1x,3f10.5)
