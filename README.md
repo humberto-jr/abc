@@ -50,13 +50,13 @@ order to avoid missing libraries during the link.
 `make use_magma LINEAR_ALGEBRA=MAGMA`
 
 If MAGMA is not installed in standard locations, you can provide the path to its
-components:
+components;
 
 4. Intel ifort + Intel MKL + MAGMA:
 `make use_magma LINEAR_ALGEBRA=MAGMA MAGMAROOT=[path/to/magma-2.5.2] CUDAROOT=[path/to/cuda/10.1]`
 
 Wrappers for MAGMA are written in C and are built with GNU gcc. If Intel icc is
-needed, then:
+needed, then
 
 5. Intel ifort + Intel icc + Intel MKL + MAGMA:
 `make use_magma CC=icc LINEAR_ALGEBRA=MAGMA MAGMAROOT=[path/to/magma-2.5.2] CUDAROOT=[path/to/cuda/10.1]`
