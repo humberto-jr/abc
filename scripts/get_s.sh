@@ -47,7 +47,7 @@ build_dir ()
 	fi
 }
 
-header="#   Coll.    a    v    j    k    a'   v'   j'   k'     Re(S)     Im(S)     |S|^2"
+header="#  Coll.                   a    v    j    k    a'   v'   j'   k'     Re(S)     Im(S)     |S|^2"
 
 for J in $(seq $J_min $J_step $J_max)
 do
@@ -77,6 +77,8 @@ do
 		declare -a v
 		declare -a j
 		declare -a k
+
+		flag=""
 
 		grep "E(eV) =" $input | cut -d "=" -f 2 | cut -d "S" -f 1 > $list
 
@@ -110,7 +112,6 @@ do
 			fi
 		done < $input
 
-		flag=""
 		n_max=$n
 
 		for n in $(seq 0 1 $n_max)
@@ -135,7 +136,7 @@ do
 					paste $list $buffer > $filename
 
 					sed -i "1s/^/$header\n/" $filename
-					sed -i "s/                       	   //g" $filename
+					sed -i "s/                       //g" $filename
 
 					rm $buffer
 					echo $filename
