@@ -127,7 +127,7 @@ do
 			do
 				ch_b="${a[$m]}    ${v[$m]}    ${j[$m]}    ${k[$m]}"
 
-				grep "$ch_a    $ch_b" $input > $buffer
+				grep "$ch_a    $ch_b" $input > $buffer || true
 
 				if [ "$(wc -l < $buffer)" != "0" ]
 				then
@@ -138,9 +138,10 @@ do
 					sed -i "1s/^/$header\n/" $filename
 					sed -i "s/                       //g" $filename
 
-					rm $buffer
 					echo $filename
 				fi
+
+				rm $buffer
 			done
 		done
 
