@@ -31,6 +31,8 @@ assert_file ()
 	fi
 }
 
+echo "#	J	p	a	v	j	k	E(eV)  	Ch."
+
 for J in $(seq $J_min $J_step $J_max)
 do
 	work_dir="$PWD/J=$J"
@@ -56,6 +58,7 @@ do
 		declare -a v
 		declare -a j
 		declare -a k
+		declare -a e
 
 		flag=""
 
@@ -86,24 +89,21 @@ do
 				v[$n]=$(echo $line | awk '{print $3}')
 				j[$n]=$(echo $line | awk '{print $4}')
 				k[$n]=$(echo $line | awk '{print $5}')
+				e[$n]=$(echo $line | awk '{print $6}')
 			fi
 		done < $input
 
 		n_max=$n
 
-		echo "# J = $J, parity = $parity, num. of channels = $n_max"
-		echo "#	a	v	j	k"
-
 		for n in $(seq 0 1 $n_max)
 		do
-			echo "	${a[$n]}	${v[$n]}	${j[$n]}	${k[$n]}"
+			 echo "	$J	$parity	${a[$n]}	${v[$n]}	${j[$n]}	${k[$n]}	${e[$n]}	$((n + 1))"
 		done
-
-		echo
 
 		unset a
 		unset v
 		unset j
 		unset k
+		unset e
 	done
 done
