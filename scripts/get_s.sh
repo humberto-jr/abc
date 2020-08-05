@@ -61,8 +61,10 @@ do
 		else
 			if [ "$parity" == "-1" ]
 			then
+				p=-1
 				parity_dir="$work_dir/parity=-1"
 			else
+				p=1
 				parity_dir="$work_dir/parity=+1"
 			fi
 		fi
@@ -131,7 +133,7 @@ do
 
 				if [ "$(wc -l < $buffer)" != "0" ]
 				then
-					filename="$s_dir/ch=$(($n + 1))-$(($m + 1)).dat"
+					filename=$s_dir/"J="$J"_p="$p"_a="${a[$n]}"-"${a[$m]}"_v="${v[$n]}"-"${v[$m]}"_j="${j[$n]}"-"${j[$m]}"_k="${k[$n]}"-"${k[$m]}".dat"
 
 					paste $list $buffer > $filename
 
