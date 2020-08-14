@@ -14,10 +14,10 @@
 
 	******************************************************************************/
 
-	#define PRINT_ERROR(format, ...)                                           \
-	{                                                                          \
-		fprintf(stderr, "# %s, %s(), line %d: ", __FILE__, __func__, __LINE__); \
-		fprintf(stderr, format, ##__VA_ARGS__);                                 \
+	#define PRINT_ERROR(format, ...)                                          \
+	{                                                                         \
+	  fprintf(stderr, "# %s, %s(), line %d: ", __FILE__, __func__, __LINE__); \
+	  fprintf(stderr, format, ##__VA_ARGS__);                                 \
 	}
 
 	/******************************************************************************
