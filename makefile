@@ -58,6 +58,10 @@ ifeq ($(FC), ifort)
 	LINEAR_ALGEBRA_LIB = -mkl=parallel -L$(MKL_LIB) -I$(MKL_INC) -Wl,--start-group $(MKL_LIB)/libmkl_intel_lp64.a $(MKL_LIB)/libmkl_intel_thread.a $(MKL_LIB)/libmkl_core.a $(MKL_LIB)/libmkl_blas95_lp64.a $(MKL_LIB)/libmkl_lapack95_lp64.a -Wl,--end-group -fopenmp -lpthread
 endif
 
+ifeq ($(FC), ifx)
+	LINEAR_ALGEBRA_LIB = -qmkl=parallel -L$(MKL_LIB) -I$(MKL_INC) -Wl,--start-group $(MKL_LIB)/libmkl_intel_lp64.a $(MKL_LIB)/libmkl_intel_thread.a $(MKL_LIB)/libmkl_core.a $(MKL_LIB)/libmkl_blas95_lp64.a $(MKL_LIB)/libmkl_lapack95_lp64.a -Wl,--end-group -fopenmp -lpthread
+endif
+
 ifeq ($(FC), gfortran)
 	LINEAR_ALGEBRA_LIB = -Wl,--start-group $(MKL_LIB)/libmkl_gf_lp64.a $(MKL_LIB)/libmkl_sequential.a $(MKL_LIB)/libmkl_core.a -Wl,--end-group -lpthread -lm -ldl
 endif
